@@ -17,7 +17,7 @@
 .swiper-item {
   width: 100px;
   height: 100%;
-  border: 1px solid #000;
+  border-right: 1px solid #000;
   transition: width 1s ease;
   position: relative;
   /* cursor: pointer; */
@@ -47,12 +47,27 @@
   padding-bottom: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  align-items: center;
 }
 div.main-sidebar h3 {
   position: relative;
   font-weight: bold;
-  transform: rotate(90deg) translateY(-20px);
+  transform: rotate(90deg) translate(30px, -30px);
+  transform-origin: top;
+  flex: 0.8;
+}
+div.main-sidebar > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  flex: 0.2;
+}
+div.main-sidebar > div > svg:hover,
+h4:hover {
+  color: gray;
+  cursor: pointer;
 }
 
 .main-sidebar a {
@@ -72,7 +87,8 @@ div.main-sidebar h3 {
   .swiper-item {
     width: 100% !important;
     height: 100px !important;
-    border: 1px solid #000;
+    border-right: none;
+    border-bottom: 1px solid #000;
     transition: height 1s ease;
   }
   .swiper-slide-active {
@@ -82,6 +98,9 @@ div.main-sidebar h3 {
     transform: rotate(0deg) translateX(0px);
     font-size: 1rem;
     left: 20px;
+  }
+  .swiper-item-title > a {
+    color: black;
   }
   .swiper-slide-active .swiper-item-title {
     font-size: 2rem;
@@ -102,7 +121,7 @@ div.main-sidebar h3 {
     font-weight: bold;
     transform: rotate(0deg) translateY(-10px);
   }
-  .main-sidebar a {
+  div.main-sidebar > div {
     flex-direction: row;
   }
 }
