@@ -1,36 +1,56 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import db from "../firebase";
+import Avatar from "./Avatar";
 import "./chatSec.css";
 
 export default function ChatSec() {
+  const [rooms, setRooms] = useState([]);
   const [messages, setMessages] = useState([
     { text: "hello there...", time: "10:45" },
     { text: "what the dog doin...", time: "10:45", myMsg: true },
   ]);
   const [inputVal, setInputVal] = useState("");
 
+  useEffect(() => {
+    const unsubscribe = db.collection("rooms").onSnapshot((snapshot) =>
+      setRooms(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
   function sendHandler(msg) {
-    if (inputVal != "") {
+    if (inputVal !== "") {
       setMessages([...messages, { text: msg, time: "10:46", myMsg: true }]);
       setInputVal("");
     }
   }
+
   return (
     <div className="chat">
-      <div className="chat-header">
-        <span>a</span>
-        <div>
-          <h4>amir asadi</h4>
-          <span>last seen recently...</span>
+      <Avatar name="Amirasadi" subTitle="how can i help you..." />
+      <div className="chat-body">
+        <div className="rooms">
+          {rooms.map((rum) => (
+            <Avatar name={rum.data.name} key={rum.id} />
+          ))}
+        </div>
+        <div className="msgs">
+          {messages.map((msg, index) => (
+            <p className={`message ${msg.myMsg && "my-msg"}`} key={index}>
+              {msg.text}
+              <span>{msg.time}</span>
+            </p>
+          ))}
         </div>
       </div>
-      <div className="chat-body">
-        {messages.map((msg, index) => (
-          <p className={`message ${msg.myMsg && "my-msg"}`} key={index}>
-            {msg.text}
-            <span>{msg.time}</span>
-          </p>
-        ))}
-      </div>
+
       <div className="chat-footer">
         <svg
           xmlns="http://www.w3.org/2000/svg"

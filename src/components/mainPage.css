@@ -15,7 +15,7 @@
 }
 
 .swiper-item {
-  width: 100px;
+  width: 220px !important;
   height: 100%;
   border-right: 1px solid #000;
   transition: width 1s ease;
@@ -42,7 +42,7 @@
 }
 
 .main-sidebar {
-  width: 65px;
+  width: 65px !important;
   padding-top: 20px;
   padding-bottom: 20px;
   display: flex;
@@ -86,7 +86,7 @@ h4:hover {
   }
   .swiper-item {
     width: 100% !important;
-    height: 100px !important;
+    height: 50px !important;
     border-right: none;
     border-bottom: 1px solid #000;
     transition: height 1s ease;
