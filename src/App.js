@@ -1,9 +1,14 @@
+import { BrowserRouter as Router } from "react-router-dom";
 import MainPage from "./components/MainPage";
+import  DataProvider  from "./DataProvider";
+
 function App() {
   return (
-    <section>
-      <MainPage />
-    </section>
+    <Router>
+      <DataProvider>
+        <MainPage />
+      </DataProvider>
+    </Router>
   );
 }
 

@@ -2,14 +2,14 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid var(--gray-3);
   padding: 10px;
   padding-right: 20px;
   padding-left: 0px;
   align-items: center;
 }
 .chat-header:hover {
-  background-color: #c1c1c1;
+  background-color: var(--gray-2);
 }
 .chat-header > div {
   display: flex;
@@ -24,11 +24,21 @@
   place-items: center;
   margin-right: 10px;
   font-weight: bold;
-  border: 1px solid black;
+  border: 1px solid var(--black);
+}
+.chat-header.selected > span  {
+  background-color: var(--black);
+  color: var(--gray-3);
 }
 
 @media screen and (max-width: 1024px) {
-  .chat-header {
+  .chat-header:first-child {
     margin-top: 30px;
+  }
+  .chat-header h4 {
+    display: none;
+  }
+  .chat-header > span {
+    margin-right: -2px;
   }
 }

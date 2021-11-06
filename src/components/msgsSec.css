@@ -1,0 +1,58 @@
+.message {
+  background-color: var(--black);
+  color: var(--gray-3);
+  width: fit-content;
+  padding: 10px;
+  position: relative;
+  margin-bottom: 40px;
+  /* min-width: 83px; */
+  display: grid;
+  place-content: center;
+}
+.message > span {
+  font-size: xx-small;
+  position: absolute;
+  bottom: -15px;
+  left: 0px;
+  right: auto;
+  color: var(--black);
+  width: max-content;
+}
+.message::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -5px;
+  background-color: var(--black);
+  z-index: 1;
+  width: 10px;
+  height: 2px;
+}
+.my-msg {
+  background-color: gray;
+  margin-left: auto;
+}
+.my-msg.message::after {
+  background-color: gray;
+  right: -5px;
+  left: auto;
+}
+.my-msg.message span {
+  right: 0px;
+  left: auto;
+}
+.my-msg.message p {
+  right: 0px;
+}
+.author {
+  font-size: xx-small;
+  position: absolute;
+  top: -15px;
+  left: 0px;
+  color: var(--black);
+  width: max-content;
+}
+.my-msg.message .author {
+  right: 0px;
+  left: auto;
+}

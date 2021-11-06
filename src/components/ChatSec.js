@@ -1,25 +1,29 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { Route } from "react-router-dom";
 import db from "../firebase";
 import Avatar from "./Avatar";
 import "./chatSec.css";
+import SignIn from "./SignIn";
+import { UserContext, ParamContext } from "../DataProvider";
+import MsgsSec from "./MsgsSec";
+import firebase from "firebase";
 
 export default function ChatSec() {
+  const user = useContext(UserContext);
+  const roomId = useContext(ParamContext);
   const [rooms, setRooms] = useState([]);
-  const [messages, setMessages] = useState([
-    { text: "hello there...", time: "10:45" },
-    { text: "what the dog doin...", time: "10:45", myMsg: true },
-  ]);
+  const [messages, setMessages] = useState([]);
   const [inputVal, setInputVal] = useState("");
 
   useEffect(() => {
-    const unsubscribe = db.collection("rooms").onSnapshot((snapshot) =>
+    const unsubscribe = db.collection("rooms").onSnapshot((snapshot) => {
       setRooms(
         snapshot.docs.map((doc) => ({
           id: doc.id,
           data: doc.data(),
         }))
-      )
-    );
+      );
+    });
     return () => {
       unsubscribe();
     };
@@ -27,7 +31,11 @@ export default function ChatSec() {
 
   function sendHandler(msg) {
     if (inputVal !== "") {
-      setMessages([...messages, { text: msg, time: "10:46", myMsg: true }]);
+      db.collection("rooms").doc(roomId).collection("msgs").add({
+        msg: msg,
+        who: user,
+        time: firebase.firestore.FieldValue.serverTimestamp(),
+      });
       setInputVal("");
     }
   }
@@ -36,40 +44,28 @@ export default function ChatSec() {
     <div className="chat">
       <Avatar name="Amirasadi" subTitle="how can i help you..." />
       <div className="chat-body">
-        <div className="rooms">
-          {rooms.map((rum) => (
-            <Avatar name={rum.data.name} key={rum.id} />
-          ))}
-        </div>
-        <div className="msgs">
-          {messages.map((msg, index) => (
-            <p className={`message ${msg.myMsg && "my-msg"}`} key={index}>
-              {msg.text}
-              <span>{msg.time}</span>
-            </p>
-          ))}
-        </div>
+        {user === "amir Asadi" && (
+          <div className="rooms">
+            {rooms.map((rum) => (
+              <Avatar name={rum.data.name} key={rum.id} id={rum.id} />
+            ))}
+          </div>
+        )}
+        {user && (
+          <Route path="/:roomId" exact={true}>
+            <MsgsSec messages={messages} setMessages={setMessages} />
+          </Route>
+        )}
+        {!user && <SignIn rooms={rooms} />}
       </div>
 
       <div className="chat-footer">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            sendHandler(inputVal);
+            if (user) {
+              sendHandler(inputVal);
+            }
           }}
         >
           <input

@@ -22,7 +22,8 @@ body {
   overflow-x: hidden;
 }
 a {
-  color: black;
+  text-decoration: none;
+  color: var(--black);
 }
 a:hover {
   color: gray;
@@ -47,11 +48,22 @@ a:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(145, 141, 141);
 }
-::selection{
+::selection {
   color: white;
-  background-color: black;
+  background-color: var(--black);
 }
 
-:root{
-  
+:root {
+  --black: #333333;
+  --gray-1: #808080;
+  --gray-2: #c2c2c2;
+  --gray-3: #d3d3d3;
+  --white: #ffffff;
+}
+.main.dark{
+  --black: #d3d3d3;
+  --gray-1: #60686C;
+  --gray-2: #3A3F42;
+  --gray-3: #313537;
+  --white: #ffffff;
 }

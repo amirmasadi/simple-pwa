@@ -26,52 +26,20 @@
 .chat-body {
   flex: 1;
   display: flex;
-  background-color: lightgray;
+  background-color: var(--gary-3);
   padding: 20px;
   max-height: 876px;
   overflow-y: scroll;
 }
-.msgs {
-  padding-left: 20px;
-  flex: 1;
-}
 .rooms {
   border-right: 1px solid gray;
 }
-.message {
-  background-color: black;
-  color: white;
-  width: fit-content;
-  padding: 10px;
-  position: relative;
-  margin-bottom: 25px;
+.msgs {
+  padding-top: 10px;
+  padding-left: 20px;
+  flex: 1;
 }
-.message > span {
-  font-size: xx-small;
-  position: absolute;
-  bottom: -15px;
-  right: 5px;
-  color: black;
-}
-.message::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -5px;
-  background-color: black;
-  z-index: 1;
-  width: 10px;
-  height: 2px;
-}
-.my-msg {
-  background-color: gray;
-  margin-left: auto;
-}
-.my-msg.message::after {
-  background-color: gray;
-  right: -5px;
-  left: auto;
-}
+
 .chat-footer {
   display: flex;
   align-items: center;
@@ -82,7 +50,7 @@
   flex: 1;
   height: 100%;
   padding-left: 10px;
-  background-color: lightgray;
+  background-color: var(--gary-3);
   font-size: 1.2rem;
   border: 1px solid gray;
 }
@@ -91,9 +59,13 @@
   width: 100%;
   outline: none;
   padding-left: 10px;
-  background-color: lightgray;
+  background-color: var(--gary-3);
+  color: var(--white);
   font-size: 1.2rem;
   border: none;
+}
+::placeholder {
+  color: var(--white);
 }
 .chat-footer > svg {
   color: white;

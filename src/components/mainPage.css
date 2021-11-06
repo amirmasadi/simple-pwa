@@ -1,9 +1,11 @@
 .main {
-  background: #c2c2c2;
+  background: var(--gray-2);
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
+  transition: background-color 0.5s ease;
 }
 .swiper-container {
   flex: 1;
@@ -17,7 +19,7 @@
 .swiper-item {
   width: 220px !important;
   height: 100%;
-  border-right: 1px solid #000;
+  border-right: 1px solid var(--black);
   transition: width 1s ease;
   position: relative;
   /* cursor: pointer; */
@@ -28,53 +30,24 @@
 }
 
 .swiper-item-title {
-  transform: rotate(90deg) translateX(20px);
+  transform-origin: left;
+  transform: rotate(90deg) translateX(0px);
   position: absolute;
   top: 10px;
-  right: 20px;
-  transition: all 0.2s ease-in;
+  left: 50%;
+  transition: all 0.4s ease-in;
   font-weight: normal;
+  color: var(--black);
+  width: max-content;
 }
 
 .swiper-slide-active .swiper-item-title {
-  transform: rotate(0deg);
+  transform: rotate(0deg) translateX(-50%);
   font-size: 3rem;
-}
-
-.main-sidebar {
-  width: 65px !important;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: space-between; */
-  align-items: center;
-}
-div.main-sidebar h3 {
-  position: relative;
   font-weight: bold;
-  transform: rotate(90deg) translate(30px, -30px);
-  transform-origin: top;
-  flex: 0.8;
-}
-div.main-sidebar > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  flex: 0.2;
-}
-div.main-sidebar > div > svg:hover,
-h4:hover {
-  color: gray;
-  cursor: pointer;
+  left: 50%;
 }
 
-.main-sidebar a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
 @media screen and (max-width: 1024px) {
   .main {
@@ -88,7 +61,7 @@ h4:hover {
     width: 100% !important;
     height: 50px !important;
     border-right: none;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid var(--black);
     transition: height 1s ease;
   }
   .swiper-slide-active {
@@ -100,7 +73,7 @@ h4:hover {
     left: 20px;
   }
   .swiper-item-title > a {
-    color: black;
+    color: var(--black);
   }
   .swiper-slide-active .swiper-item-title {
     font-size: 2rem;
@@ -116,12 +89,13 @@ h4:hover {
     flex-direction: row;
     align-items: center;
   }
-  div.main-sidebar h3 {
-    position: relative;
-    font-weight: bold;
-    transform: rotate(0deg) translateY(-10px);
-  }
-  div.main-sidebar > div {
+
+  .main-sidebar .name{
     flex-direction: row;
+    visibility: hidden;
+  }
+  .main-sidebar .options{
+    flex-direction: row;
+    justify-content: space-around;
   }
 }
