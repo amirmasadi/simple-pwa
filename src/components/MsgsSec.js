@@ -9,6 +9,7 @@ export default function MsgsSec({ messages, setMessages }) {
   const mySetparams = useContext(SetParamsContext);
   let { roomId } = useParams();
 
+  
   useEffect(() => {
     if (roomId) {
       db.collection("rooms")
@@ -20,6 +21,7 @@ export default function MsgsSec({ messages, setMessages }) {
         );
     }
     mySetparams(roomId);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [roomId]);
 
   return (

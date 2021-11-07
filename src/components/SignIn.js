@@ -1,6 +1,6 @@
 import googleLogo from "../assets/google.png";
 import "./signin.css";
-import db, { auth, provider } from "../firebase";
+import { /*db,*/ auth, provider } from "../firebase";
 import { SetUserContext } from "../DataProvider";
 import { useContext } from "react";
 
@@ -17,9 +17,9 @@ export default function SignIn({ rooms }) {
       .catch((error) => console.log(error.message));
   }
 
-  function addRoom(roomName) {
-    db.collection("rooms").add({ name: roomName });
-  }
+  // function addRoom(roomName) {
+  //   db.collection("rooms").add({ name: roomName });
+  // }
 
   return (
     <div className="sign-in">
