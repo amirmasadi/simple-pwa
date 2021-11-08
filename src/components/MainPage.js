@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import ChatSec from "./chatSec/ChatSec";
 import Header from "./Header";
 import "./mainPage.css";
+import ProjSec from "./projSec/ProjSec";
 
 export default function MainPage() {
   SwiperCore.use([Keyboard]);
@@ -39,20 +40,21 @@ export default function MainPage() {
         virtualTranslate={true}
       >
         <SwiperSlide className="swiper-item">
+          <h3 className="swiper-item-title">Blog</h3>
+        </SwiperSlide>
+        <SwiperSlide className="swiper-item">
+          <h3 className="swiper-item-title">Amir Asadi</h3>
+        </SwiperSlide>
+        <SwiperSlide className="swiper-item">
+          <h3 className="swiper-item-title">Projects</h3>
+          <ProjSec />
+        </SwiperSlide>
+        <SwiperSlide className="swiper-item">
+          <h3 className="swiper-item-title">Contact</h3>
+        </SwiperSlide>
+        <SwiperSlide className="swiper-item">
           <h3 className="swiper-item-title">online chat</h3>
           <ChatSec />
-        </SwiperSlide>
-        <SwiperSlide className="swiper-item">
-          <h3 className="swiper-item-title">in process</h3>
-        </SwiperSlide>
-        <SwiperSlide className="swiper-item">
-          <h3 className="swiper-item-title">in process</h3>
-        </SwiperSlide>
-        <SwiperSlide className="swiper-item">
-          <h3 className="swiper-item-title">in process</h3>
-        </SwiperSlide>
-        <SwiperSlide className="swiper-item">
-          <h3 className="swiper-item-title">in process</h3>
         </SwiperSlide>
       </Swiper>
     </div>

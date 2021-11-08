@@ -1,11 +1,14 @@
 .chat {
+  display: flex;
   height: 100%;
   padding: 20px;
   flex-direction: column;
-  display: none;
+  opacity: 0;
+  transition: opacity 1s ease;
 }
 .swiper-slide-active .chat {
-  display: flex;
+  transition: opacity 1s ease;
+  opacity: 1;
 }
 .chat-body {
   flex: 1;
