@@ -1,12 +1,23 @@
 .proj-sec {
   height: 100%;
   width: 100%;
-  display: grid;
-  place-content: center;
   overflow-y: scroll;
   opacity: 0;
   transition: opacity 1s ease;
   padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.proj-sec::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 50px;
+  background: linear-gradient(to right, #00000000 0%, var(--gray-2) 70%);
+  z-index: 2;
 }
 .swiper-slide-active .proj-sec {
   transition: opacity 1s ease;

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SwiperCore, { Keyboard } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import BlogSec from "./blogSec/BlogSec";
 import ChatSec from "./chatSec/ChatSec";
 import Header from "./Header";
 import "./mainPage.css";
@@ -40,20 +41,21 @@ export default function MainPage() {
         virtualTranslate={true}
       >
         <SwiperSlide className="swiper-item">
-          <h3 className="swiper-item-title">Blog</h3>
+          <h3 className="swiper-item-title">Welcome</h3>
         </SwiperSlide>
         <SwiperSlide className="swiper-item">
-          <h3 className="swiper-item-title">Amir Asadi</h3>
-        </SwiperSlide>
-        <SwiperSlide className="swiper-item">
-          <h3 className="swiper-item-title">Projects</h3>
+          <h3 className="swiper-item-title">Works</h3>
           <ProjSec />
         </SwiperSlide>
         <SwiperSlide className="swiper-item">
-          <h3 className="swiper-item-title">Contact</h3>
+          <h3 className="swiper-item-title">Blog</h3>
+          <BlogSec />
         </SwiperSlide>
+        {/* <SwiperSlide className="swiper-item">
+          <h3 className="swiper-item-title">Contact</h3>
+        </SwiperSlide> */}
         <SwiperSlide className="swiper-item">
-          <h3 className="swiper-item-title">online chat</h3>
+          <h3 className="swiper-item-title">Live chat</h3>
           <ChatSec />
         </SwiperSlide>
       </Swiper>
