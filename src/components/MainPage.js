@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import SwiperCore, { Keyboard } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import ChatSec from "./ChatSec";
+import ChatSec from "./chatSec/ChatSec";
 import Header from "./Header";
 import "./mainPage.css";
 

@@ -1,7 +1,7 @@
-import googleLogo from "../assets/google.png";
+import googleLogo from "../../assets/google.png";
 import "./signin.css";
-import { /*db,*/ auth, provider } from "../firebase";
-import { SetUserContext } from "../DataProvider";
+import { /*db,*/ auth, provider } from "../../firebase";
+import { SetUserContext } from "../../DataProvider";
 import { useContext } from "react";
 
 export default function SignIn({ rooms }) {

@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { useParams } from "react-router";
-import { UserContext, SetParamsContext } from "../DataProvider";
-import db from "../firebase";
+import { UserContext, SetParamsContext } from "../../DataProvider";
+import db from "../../firebase";
 import "./msgsSec.css";
 
 export default function MsgsSec({ messages, setMessages }) {
@@ -9,7 +9,6 @@ export default function MsgsSec({ messages, setMessages }) {
   const mySetparams = useContext(SetParamsContext);
   let { roomId } = useParams();
 
-  
   useEffect(() => {
     if (roomId) {
       db.collection("rooms")

@@ -1,10 +1,10 @@
 import { useState, useEffect, useContext } from "react";
 import { Route } from "react-router-dom";
-import db from "../firebase";
+import db from "../../firebase";
 import Avatar from "./Avatar";
 import "./chatSec.css";
 import SignIn from "./SignIn";
-import { UserContext, ParamContext } from "../DataProvider";
+import { UserContext, ParamContext } from "../../DataProvider";
 import MsgsSec from "./MsgsSec";
 import firebase from "firebase";
 

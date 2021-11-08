@@ -6,22 +6,6 @@
 }
 .swiper-slide-active .chat {
   display: flex;
-  animation-name: fade-in;
-  animation-duration: 2s;
-}
-@keyframes fade-in {
-  0% {
-    width: 0;
-    opacity: 0;
-  }
-  25% {
-    width: auto;
-  }
-  50% {
-  }
-  100% {
-    opacity: 100%;
-  }
 }
 .chat-body {
   flex: 1;

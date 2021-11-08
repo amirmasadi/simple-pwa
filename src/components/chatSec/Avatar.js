@@ -1,7 +1,7 @@
 import "./avatar.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { ParamContext } from "../DataProvider";
+import { ParamContext } from "../../DataProvider";
 
 export default function Avatar({ name, id, subTitle }) {
   const myParam = useContext(ParamContext);

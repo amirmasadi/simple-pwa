@@ -65,7 +65,7 @@
     transition: height 1s ease;
   }
   .swiper-slide-active {
-    height: 100% !important;
+    height: 75% !important;
   }
   .swiper-item-title {
     transform: rotate(0deg) translateX(0px);
