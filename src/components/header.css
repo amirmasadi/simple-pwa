@@ -10,6 +10,9 @@
   border-top: 1px solid var(--black);
   color: var(--black);
 }
+.header h3 {
+  padding: 10px;
+}
 .header svg:hover,
 .header h4:hover {
   color: gray;

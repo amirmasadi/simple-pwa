@@ -3,6 +3,7 @@ import SwiperCore, { Keyboard } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import BlogSec from "./blogSec/BlogSec";
 import ChatSec from "./chatSec/ChatSec";
+import CvSec from "./CvSec/CvSec";
 import Header from "./Header";
 import "./mainPage.css";
 import ProjSec from "./projSec/ProjSec";
@@ -36,13 +37,10 @@ export default function MainPage() {
         keyboard={{ enabled: true }}
         centeredSlides={true}
         grabCursor={true}
-        initialSlide={2}
+        initialSlide={3}
         slideToClickedSlide={true}
         virtualTranslate={true}
       >
-        <SwiperSlide className="swiper-item">
-          <h3 className="swiper-item-title">Welcome</h3>
-        </SwiperSlide>
         <SwiperSlide className="swiper-item">
           <h3 className="swiper-item-title">Works</h3>
           <ProjSec />
@@ -57,6 +55,10 @@ export default function MainPage() {
         <SwiperSlide className="swiper-item">
           <h3 className="swiper-item-title">Live chat</h3>
           <ChatSec />
+        </SwiperSlide>
+        <SwiperSlide className="swiper-item">
+          <h3 className="swiper-item-title">Welcome</h3>
+          <CvSec />
         </SwiperSlide>
       </Swiper>
     </div>

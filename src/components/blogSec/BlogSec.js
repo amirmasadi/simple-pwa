@@ -1,9 +1,7 @@
 import "./blogSec.css";
 import projData from "../../assets/projData";
-import { useState } from "react";
 
 export default function BlogSec() {
-  const [pData, setPData] = useState(projData);
 
   let d = new Date();
   let t = d.toDateString().split(" ");
@@ -11,7 +9,7 @@ export default function BlogSec() {
   return (
     <div className="blog-sec">
       <div className="blogs-wrapper">
-        {pData.map((blog) => (
+        {projData.map((blog) => (
           <div key={blog.id} className="blog-items">
             <img src={blog.img} alt="blog-img" />
             <div>
