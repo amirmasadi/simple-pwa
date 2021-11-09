@@ -1,7 +1,7 @@
 import React from "react";
 import "./header.css";
 
-export default function Header({ dark, themeToggle }) {
+export default function Header({ theme, themeToggle }) {
   return (
     <div className="header">
       <svg
@@ -13,7 +13,7 @@ export default function Header({ dark, themeToggle }) {
         stroke="currentColor"
         width="25px"
       >
-        {!dark ? (
+        {theme === "light" ? (
           <path
             strokeLinecap="round"
             strokeLinejoin="round"

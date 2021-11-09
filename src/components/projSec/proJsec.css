@@ -4,6 +4,7 @@
   overflow-y: scroll;
   opacity: 0;
   transition: opacity 1s ease;
+  padding: 40px;
   padding-top: 100px;
   display: flex;
   flex-direction: column;
@@ -76,6 +77,8 @@
 @media screen and (max-width: 1024px) {
   .proj-sec {
     padding-top: 200px;
+    padding: 5px;
+
   }
 }
 @media screen and (max-width: 786px) {

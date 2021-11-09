@@ -10,23 +10,22 @@ import ProjSec from "./projSec/ProjSec";
 
 export default function MainPage() {
   SwiperCore.use([Keyboard]);
-  const [dark, setDark] = useState(false);
+  const [theme, setTheme] = useState("");
 
   useEffect(() => {
-    const theme = localStorage.getItem("dark")
-      ? localStorage.getItem("dark")
-      : false;
-    setDark(theme);
+    // localStorage.getItem("theme")
+       setTheme(localStorage.getItem("theme"))
+      // : setTheme("light");
   }, []);
 
   function themeToggle() {
-    setDark(!dark);
-    localStorage.setItem("dark", dark);
+    setTheme(theme === "light" ? "dark" : "light");
+    localStorage.setItem("theme", theme);
   }
 
   return (
-    <div className={`main ${dark && "dark"}`}>
-      <Header themeToggle={themeToggle} dark={dark} />
+    <div className={`main ${theme}`}>
+      <Header themeToggle={themeToggle} theme={theme} />
       <Swiper
         touchMoveStopPropagation={false}
         touchRatio={1}
