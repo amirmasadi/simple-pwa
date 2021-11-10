@@ -16,9 +16,14 @@ export default function CvSec() {
         <div className="about">
           <div>
             <h3>contact</h3>
-            <p>you can use live chat sections to contact me</p>
+            <p>
+              you can use <b>live chat sections</b> to contact me
+            </p>
             <p>a.m.asadi2001@gmail.com</p>
-            <p>Iran, tehran, damavand</p>
+            <p>
+              <a href="https://github.com/amirmasadi/simple-pwa"><b>Github</b></a> of
+              the project
+            </p>
           </div>
 
           <div>
@@ -26,7 +31,7 @@ export default function CvSec() {
             <p>
               Hard-working web developer with a flair for creating elegant
               solutions in the least amount of time. Developed an ecommerce
-              webapp, customer web portal, documentary launch website, and
+              webapp, documentary launch website, and
               donations webapp for a local charity. Passionate about software
               architecture and cloud computing. Regular attendee of web
               developer meetups and hackathons.
@@ -68,23 +73,23 @@ export default function CvSec() {
       <div className="skills">
         <div>
           <img src={Css} alt="amir-asadi-pic" />
-          <h4>CSS</h4>
+          <h4>100%</h4>
         </div>
         <div>
           <img src={Html} alt="amir-asadi-pic" />
-          <h4>HTML</h4>
+          <h4>100%</h4>
         </div>
         <div>
           <img src={Javascript} alt="amir-asadi-pic" />
-          <h4>JvaScript</h4>
+          <h4>50%</h4>
         </div>
         <div>
           <img src={Photoshop} alt="amir-asadi-pic" />
-          <h4>PhotoShop</h4>
+          <h4>90%</h4>
         </div>
         <div>
           <img src={ReactPic} alt="amir-asadi-pic" />
-          <h4>ReactJs</h4>
+          <h4>60%</h4>
         </div>
       </div>
     </div>
